@@ -16,7 +16,7 @@ class UrlSigner extends MD5UrlSigner
      */
     public function sign($url, $expiration = null)
     {
-        $expiration = $expiration ?? config('url-signer.default_expiration_time_in_days');
+        $expiration = $expiration === null ? config('url-signer.default_expiration_time_in_days') : $expiration;
 
         return parent::sign($url, $expiration);
     }
